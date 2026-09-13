@@ -1,0 +1,78 @@
+# Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.uv-cache/
+
+# macOS and editors
+.DS_Store
+._*
+*.swp
+*.swo
+
+# Generated runtime configuration
+/comfy/config/runtime.env
+/comfy/config/extra_model_paths.yaml
+
+# Local ComfyUI copies (the supported installation lives outside this repo)
+/ComfyUI/
+/comfy/ComfyUI/
+
+# Runtime state and logs
+/run/
+/logs/*
+!/logs/.gitkeep
+
+# Models: preserve the directory skeleton only
+/models/checkpoints/*
+!/models/checkpoints/.gitkeep
+/models/diffusion_models/*
+!/models/diffusion_models/.gitkeep
+/models/text_encoders/*
+!/models/text_encoders/.gitkeep
+/models/vae/*
+!/models/vae/.gitkeep
+/models/loras/*
+!/models/loras/.gitkeep
+/models/controlnet/*
+!/models/controlnet/.gitkeep
+/models/ipadapter/*
+!/models/ipadapter/.gitkeep
+/models/clip_vision/*
+!/models/clip_vision/.gitkeep
+
+# Inputs and generated outputs: preserve the directory skeleton only
+/input/*
+!/input/.gitkeep
+/output/*
+!/output/.gitkeep
+
+# Temporary workflow files; committed templates belong directly in workflows/
+/comfy/workflows/tmp/
+/comfy/workflows/*.tmp.json
+/comfy/workflows/*-temp.json
+
+# Large experiment artifacts (small configs and notes remain trackable)
+/experiments/**/artifacts/
+/experiments/**/output/
+/experiments/**/*.png
+/experiments/**/*.jpg
+/experiments/**/*.jpeg
+/experiments/**/*.webp
+/experiments/**/*.gif
+/experiments/**/*.tif
+/experiments/**/*.tiff
+/experiments/**/*.bmp
+/experiments/**/*.mp4
+/experiments/**/*.mov
+/experiments/**/*.mkv
+/experiments/**/*.safetensors
+/experiments/**/*.ckpt
+/experiments/**/*.pt
+/experiments/**/*.pth
+/experiments/**/*.bin
+/experiments/**/*.npy
+/experiments/**/*.npz
