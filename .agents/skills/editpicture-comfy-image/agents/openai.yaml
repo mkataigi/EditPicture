@@ -1,0 +1,4 @@
+interface:
+  display_name: "EditPicture Comfy Image"
+  short_description: "Generate images through local ComfyUI safely"
+  default_prompt: "Use $editpicture-comfy-image with a named workflow in comfy/workflows/ to generate one local image, visually review it, and record provenance."
