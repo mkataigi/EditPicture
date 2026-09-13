@@ -107,6 +107,28 @@ comfy --workspace="$HOME/.local/share/editpicture/comfy/ComfyUI" install --m-ser
 
 意味的な prompt とバックエンド固有 prompt は分離してください。将来は、小さな experiment 設定から workflow JSON を組み立て、生成結果と類似度評価を記録する Python パッケージを追加できるよう `pyproject.toml` を用意しています。
 
+## Codex から画像生成する
+
+このリポジトリには、ローカル ComfyUI を安全に使うための repo-local skill `editpicture-comfy-image` が含まれています。Codex には workflow を明示して、たとえば次のように依頼します。
+
+```text
+$editpicture-comfy-image を使い、comfy/workflows/flux-text-to-image.json で
+「雨上がりの東京の路地」という画像を1枚生成してください。
+モデルやbackendはworkflow指定から変更せず、出力を目視確認して実験記録を残してください。
+```
+
+workflow ファイル名は実際に `comfy/workflows/` へ配置したものへ置き換えてください。スキルはモデルを自動ダウンロードせず、cloudや有料APIへfallbackしません。workflowまたは必要モデルがなければ、その不足を報告して停止します。別のローカルモデルやworkflowへのfallbackも、ユーザーがその変更を明示承認した場合だけ行います。
+
+Codexが直接 `comfy-cli` の機能を呼ぶ場合も、local-only設定を固定するラッパーを使います。
+
+```bash
+./scripts/comfy-local.sh --version
+./scripts/comfy-local.sh system-stats
+./scripts/comfy-local.sh run --workflow comfy/workflows/<workflow>.json --print-prompt
+```
+
+実行前には `./scripts/healthcheck.sh`、必要なら `./scripts/start.sh` を使います。生成ジョブの投入、有限時間の待機、ジョブ単位のキャンセル、目視確認、`experiments/<run-id>/` への来歴記録という詳しい手順は [skill本体](.agents/skills/editpicture-comfy-image/SKILL.md) にあります。
+
 ## Git 管理方針
 
 Git で管理するもの:

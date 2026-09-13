@@ -4,6 +4,14 @@
 
 This repository is the automation and experiment layer for local image generation. Treat ComfyUI as an external image-generation backend controlled through `comfy-cli` and, as the project grows, its HTTP API.
 
+## Image-generation tasks
+
+- Use the repository skill at `.agents/skills/editpicture-comfy-image/SKILL.md` for requests to generate or evaluate images with this local ComfyUI environment.
+- Use `scripts/comfy-local.sh` for direct `comfy-cli` commands so the configured workspace and local-only route are explicit.
+- Require an explicit workflow for generation. Do not use implicit checkpoint substitution or change the selected model/backend after a failure without the user's explicit approval of that fallback; after an approved change, repeat preflight checks.
+- Preflight the server, bound each run and retry count, cancel only the current job by prompt ID, visually review outputs, and record experiment provenance as directed by the skill.
+- Do not use paid partner nodes, cloud routing, or remote image services unless the user separately and explicitly changes the scope.
+
 ## Safety and repository rules
 
 - Never add model weights or other large model files to Git.
