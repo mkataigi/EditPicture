@@ -1,0 +1,13 @@
+[project]
+name = "editpicture"
+version = "0.1.0"
+description = "Local ComfyUI automation workspace for reproducible image experiments"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = []
+
+[tool.uv]
+package = false

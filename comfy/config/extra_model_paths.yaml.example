@@ -1,0 +1,14 @@
+# scripts/setup.sh generates extra_model_paths.yaml from this idea, replacing
+# the placeholder with the absolute path of the current repository.
+editpicture:
+  base_path: "__REPOSITORY_ROOT__"
+  checkpoints: models/checkpoints
+  diffusion_models: models/diffusion_models
+  text_encoders: models/text_encoders
+  # Compatibility name used by ComfyUI versions/nodes that call encoders CLIP.
+  clip: models/text_encoders
+  vae: models/vae
+  loras: models/loras
+  controlnet: models/controlnet
+  ipadapter: models/ipadapter
+  clip_vision: models/clip_vision
